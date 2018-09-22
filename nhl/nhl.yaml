@@ -2141,69 +2141,69 @@ components:
                           type: string
                           example: 23
                         goals:
-                          type: number
+                          type: string
                           example: 13
                         pim:
-                          type: number
+                          type: string
                           example: 38
                         shots:
-                          type: number
+                          type: string
                           example: 75
                         games:
-                          type: number
+                          type: string
                           example: 47
                         hits:
-                          type: number
+                          type: string
                           example: 32
                         powerPlayGoals:
-                          type: number
+                          type: string
                           example: 7
                         powerPlayPoints:
-                          type: number
+                          type: string
                           example: 18
                         powerPlayTimeOnIce:
-                          type: number
+                          type: string
                           example: "168:28"
                         evenTimeOnIce:
-                          type: number
+                          type: string
                           example: "692:50"
                         penaltyMinutes:
-                          type: number
+                          type: string
                           example: "38"
                         faceOffPct:
-                          type: number
+                          type: string
                           format: double
                           example: 52.04
                         shotPct:
-                          type: number
+                          type: string
                           format: float
                           example: 17.3
                         gameWinningGoals:
-                          type: number
+                          type: string
                           example: 1
                         overTimeGoals:
-                          type: number
+                          type: string
                           example: 0
                         shortHandedGoals:
-                          type: number
+                          type: string
                           example: 0
                         shortHandedPoints:
-                          type: number
+                          type: string
                           example: 0
                         shortHandedTimeOnIce:
                           type: string
                           example: "00:55"
                         blocked:
-                          type: number
+                          type: string
                           example: 18
                         plusMinus:
-                          type: number
+                          type: string
                           example: -9
                         points:
-                          type: number
+                          type: string
                           example: 36
                         shifts:
-                          type: number
+                          type: string
                           example: 1077
                         timeOnIcePerGame:
                           type: string
@@ -2257,31 +2257,31 @@ components:
                           type: string
                           example: "1st"
                         goalsInFirstPeriod:
-                          type: number
+                          type: string
                           example: 6
                         goalsInSecondPeriod:
-                          type: number
+                          type: string
                           example: 3
                         goalsInThirdPeriod:
-                          type: number
+                          type: string
                           example: 4
                         goalsTrailingByOne:
-                          type: number
+                          type: string
                           example: 2
                         goalsTrailingByTwo:
-                          type: number
+                          type: string
                           example: 1
                         goalsTrailingByThreePlus:
-                          type: number
+                          type: string
                           example: 1
                         goalsWhenTied:
-                          type: number
+                          type: string
                           example: 4
                         goalsLeadingByOne:
-                          type: number
+                          type: string
                           example: 2
                         goalsLeadingByTwo:
-                          type: number
+                          type: string
                           example: 3
                     isHome:
                       type: boolean
@@ -3036,121 +3036,228 @@ components:
               splits:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    stat:
-                      type: object
-                      properties:
-                        gamesPlayed:
-                          type: number
-                          example: 55
-                        wins:
-                          type: number
-                          example: 29
-                        losses:
-                          type: number
-                          example: 18
-                        ot:
-                          type: number
-                          example: 8
-                        pts:
-                          type: number
-                          example: 66
-                        ptPctg:
-                          type: string
-                          example: "60.0"
-                        goalsPerGame:
-                          type: number
-                          format: float
-                          example: 2.891
-                        goalsAgainstPerGame:
-                          type: number
-                          format: float
-                          example: 2.745
-                        evGGARatio:
-                          type: number
-                          format: float
-                          example: 0.8532
-                        powerPlayPercentage:
-                          type: string
-                          example: "23.9"
-                        powerPlayGoals:
-                          type: number
-                          example: 44
-                        powerPlayGoalsAgainst:
-                          type: number
-                          example: 26
-                        powerPlayOpportunities:
-                          type: number
-                          example: 184
-                        penaltyKillPercentage:
-                          type: string
-                          example: "84.6"
-                        shotsPerGame:
-                          type: number
-                          format: float
-                          example: 32.8
-                        shotsAllowed:
-                          type: number
-                          format: float
-                          example: 30.2182
-                        winScoreFirst:
-                          type: number
-                          format: float
-                          example: 0.679
-                        winOppScoreFirst:
-                          type: number
-                          format: float
-                          example: 0.37
-                        winLeadFirstPer:
-                          type: number
-                          format: float
-                          example: 0.85
-                        winLeadSecondPer:
-                          type: number
-                          format: float
-                          example: 0.952
-                        winOutshootOpp:
-                          type: number
-                          format: float
-                          example: 0.467
-                        winOutshotByOpp:
-                          type: number
-                          format: float
-                          example: 0.6
-                        faceOffsTaken:
-                          type: number
-                          example: 3300
-                        faceOffsWon:
-                          type: number
-                          example: 1675
-                        faceOffsLost:
-                          type: number
-                          example: 1625
-                        faceOffWinPercentage:
-                          type: string
-                          example: "50.8"
-                        shootingPctg:
-                          type: number
-                          format: float
-                          example: 8.8
-                        savePctg:
-                          type: number
-                          format: float
-                          example: 0.909
-                    team:
-                      type: object
-                      properties:
-                        id:
-                          type: number
-                          example: 28
-                        name:
-                          type: string
-                          example: "San Jose Sharks"
-                        link:
-                          type: string
-                          format: uri
-                          example: "/api/v1/teams/28"
+                  oneOf:
+                  - $ref: '#/components/schemas/statsSingleSeason'
+                  - $ref: '#/components/schemas/regularSeasonStatRankings'
+    statsSingleSeason:
+      type: object
+      properties:
+        stat:
+          type: object
+          properties:
+            gamesPlayed:
+              type: number
+              example: 55
+            wins:
+              type: number
+              example: 29
+            losses:
+              type: number
+              example: 18
+            ot:
+              type: number
+              example: 8
+            pts:
+              type: number
+              example: 66
+            ptPctg:
+              type: string
+              example: "60.0"
+            goalsPerGame:
+              type: number
+              format: float
+              example: 2.891
+            goalsAgainstPerGame:
+              type: number
+              format: float
+              example: 2.745
+            evGGARatio:
+              type: number
+              format: float
+              example: 0.8532
+            powerPlayPercentage:
+              type: string
+              example: "23.9"
+            powerPlayGoals:
+              type: number
+              example: 44
+            powerPlayGoalsAgainst:
+              type: number
+              example: 26
+            powerPlayOpportunities:
+              type: number
+              example: 184
+            penaltyKillPercentage:
+              type: string
+              example: "84.6"
+            shotsPerGame:
+              type: number
+              format: float
+              example: 32.8
+            shotsAllowed:
+              type: number
+              format: float
+              example: 30.2182
+            winScoreFirst:
+              type: number
+              format: float
+              example: 0.679
+            winOppScoreFirst:
+              type: number
+              format: float
+              example: 0.37
+            winLeadFirstPer:
+              type: number
+              format: float
+              example: 0.85
+            winLeadSecondPer:
+              type: number
+              format: float
+              example: 0.952
+            winOutshootOpp:
+              type: number
+              format: float
+              example: 0.467
+            winOutshotByOpp:
+              type: number
+              format: float
+              example: 0.6
+            faceOffsTaken:
+              type: number
+              example: 3300
+            faceOffsWon:
+              type: number
+              example: 1675
+            faceOffsLost:
+              type: number
+              example: 1625
+            faceOffWinPercentage:
+              type: string
+              example: "50.8"
+            shootingPctg:
+              type: number
+              format: float
+              example: 8.8
+            savePctg:
+              type: number
+              format: float
+              example: 0.909
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 28
+            name:
+              type: string
+              example: "San Jose Sharks"
+            link:
+              type: string
+              format: uri
+              example: "/api/v1/teams/28"
+    regularSeasonStatRankings:
+      type: object
+      properties:
+        stat:
+          type: object
+          properties:
+            gamesPlayed:
+              type: string
+              example: 55
+            wins:
+              type: string
+              example: 29
+            losses:
+              type: string
+              example: 18
+            ot:
+              type: string
+              example: 8
+            pts:
+              type: string
+              example: 66
+            ptPctg:
+              type: string
+              example: "60.0"
+            goalsPerGame:
+              type: string
+              example: 2.891
+            goalsAgainstPerGame:
+              type: string
+              example: 2.745
+            evGGARatio:
+              type: string
+              example: 0.8532
+            powerPlayPercentage:
+              type: string
+              example: "23.9"
+            powerPlayGoals:
+              type: string
+              example: 44
+            powerPlayGoalsAgainst:
+              type: string
+              example: 26
+            powerPlayOpportunities:
+              type: string
+              example: 184
+            penaltyKillPercentage:
+              type: string
+              example: "84.6"
+            shotsPerGame:
+              type: string
+              example: 32.8
+            shotsAllowed:
+              type: string
+              example: 30.2182
+            winScoreFirst:
+              type: string
+              example: 0.679
+            winOppScoreFirst:
+                type: string
+                example: 0.37
+            winLeadFirstPer:
+              type: string
+              example: 0.85
+            winLeadSecondPer:
+              type: string
+              example: 0.952
+            winOutshootOpp:
+              type: string
+              example: 0.467
+            winOutshotByOpp:
+              type: string
+              example: 0.6
+            faceOffsTaken:
+              type: string
+              example: 3300
+            faceOffsWon:
+              type: string
+              example: 1675
+            faceOffsLost:
+              type: string
+              example: 1625
+            faceOffWinPercentage:
+              type: string
+              example: "50.8"
+            shootingPctg:
+              type: string
+              example: 8.8
+            savePctg:
+              type: string
+              example: 0.909
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 28
+            name:
+              type: string
+              example: "San Jose Sharks"
+            link:
+              type: string
+              format: uri
+              example: "/api/v1/teams/28"
     Venue:
       properties:
         name:
