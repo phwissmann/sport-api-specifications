@@ -561,6 +561,7 @@ paths:
           schema:
             type: number
             example: 28
+        - $ref: '#/components/parameters/season'
       responses:
         200:
           description: OK
