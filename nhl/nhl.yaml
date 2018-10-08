@@ -270,7 +270,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Players"
+                $ref: "#/components/schemas/Player"
         404:
           $ref: "#/components/responses/Error"
   /people/{id}/stats:
@@ -544,7 +544,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Rosters"
+                $ref: "#/components/schemas/Roster"
         404:
           $ref: "#/components/responses/Error"
   /teams/{id}/stats:
@@ -1998,94 +1998,101 @@ components:
               example: "https://nhl.bamcontent.com/images/photos/295824704/2568x1444/cut.jpg"
     Player:
       properties:
-        id:
-          type: number
-          example: 8466138
-        fullName:
+        copyright:
           type: string
-          example: "Joe Thornton"
-        link:
-          type: string
-          format: uri
-          example: "/api/v1/people/8466138"
-        firstName:
-          type: string
-          example: "Joe"
-        lastName:
-          type: string
-          example: "Thornton"
-        primaryNumber:
-          type: string
-          example: "19"
-        birthDate:
-          type: string
-          format: date
-          example: "1979-07-02"
-        currentAge:
-          type: number
-          example: 38
-        birthCity:
-          type: string
-          example: "London"
-        birthStateProvince:
-          type: string
-          example: "ON"
-        birthCountry:
-          type: string
-          example: "CAN"
-        nationality:
-          type: string
-          example: "CAN"
-        height:
-          type: string
-          example: "6' 4\""
-        weight:
-          type: number
-          example: 220
-        active:
-          type: boolean
-        alternateCaptain:
-          type: boolean
-        captain:
-          type: boolean
-        rookie:
-          type: boolean
-        shootsCatches:
-          type: string
-          enum:
-            - "L"
-            - "R"
-        rosterStatus:
-          type: string
-          example: "I"
-        currentTeam:
-          type: object
-          properties:
-            id:
-              type: number
-              example: 28
-            name:
-              type: string
-              example: "San Jose Sharks"
-            link:
-              type: string
-              format: uri
-              example: "/api/v1/teams/28"
-        primaryPosition:
-          type: object
-          properties:
-            code:
-              type: string
-              example: "C"
-            name:
-              type: string
-              example: "Center"
-            type:
-              type: string
-              example: "Forward"
-            abbreviation:
-              type: string
-              example: "C"
+        people:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                example: 8466138
+              fullName:
+                type: string
+                example: "Joe Thornton"
+              link:
+                type: string
+                format: uri
+                example: "/api/v1/people/8466138"
+              firstName:
+                type: string
+                example: "Joe"
+              lastName:
+                type: string
+                example: "Thornton"
+              primaryNumber:
+                type: string
+                example: "19"
+              birthDate:
+                type: string
+                format: date
+                example: "1979-07-02"
+              currentAge:
+                type: number
+                example: 38
+              birthCity:
+                type: string
+                example: "London"
+              birthStateProvince:
+                type: string
+                example: "ON"
+              birthCountry:
+                type: string
+                example: "CAN"
+              nationality:
+                type: string
+                example: "CAN"
+              height:
+                type: string
+                example: "6' 4\""
+              weight:
+                type: number
+                example: 220
+              active:
+                type: boolean
+              alternateCaptain:
+                type: boolean
+              captain:
+                type: boolean
+              rookie:
+                type: boolean
+              shootsCatches:
+                type: string
+                enum:
+                  - "L"
+                  - "R"
+              rosterStatus:
+                type: string
+                example: "I"
+              currentTeam:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 28
+                  name:
+                    type: string
+                    example: "San Jose Sharks"
+                  link:
+                    type: string
+                    format: uri
+                    example: "/api/v1/teams/28"
+              primaryPosition:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: "C"
+                  name:
+                    type: string
+                    example: "Center"
+                  type:
+                    type: string
+                    example: "Forward"
+                  abbreviation:
+                    type: string
+                    example: "C"
     Players:
       required:
         - copyright
@@ -2337,37 +2344,42 @@ components:
                           example: "/api/v1/conferences/5"
     Roster:
       properties:
-        person:
-          type: object
-          properties:
-            id:
-              type: number
-              example: 8466138
-            fullName:
-              type: string
-              example: "Joe Thornton"
-            link:
-              type: string
-              format: uri
-              example: "/api/v1/people/8466138"
-        jerseyNumber:
-          type: number
-          example: 19
-        position:
-          type: object
-          properties:
-            code:
-              type: string
-              example: "C"
-            name:
-              type: string
-              example: "Center"
-            type:
-              type: string
-              example: "Forward"
-            abbreviation:
-              type: string
-              example: "C"
+        roster:
+          type: array
+          items:
+            type: object
+            properties:
+              person:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 8466138
+                  fullName:
+                    type: string
+                    example: "Joe Thornton"
+                  link:
+                    type: string
+                    format: uri
+                    example: "/api/v1/people/8466138"
+              jerseyNumber:
+                type: number
+                example: 19
+              position:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: "C"
+                  name:
+                    type: string
+                    example: "Center"
+                  type:
+                    type: string
+                    example: "Forward"
+                  abbreviation:
+                    type: string
+                    example: "C"
     Rosters:
       properties:
         copyright:
